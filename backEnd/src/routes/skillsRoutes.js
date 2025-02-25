@@ -15,7 +15,7 @@ const {
 const { protect } = require("../middlewares/authMiddleware");
 
 router.post("/addskill", protect, upload.single("imageFile"), addSkill);
-router.get("/getallskills", protect, getAllSkills);
+router.get("/getallskills", getAllSkills);
 router.put(
   "/updateskill/:id",
   protect,
