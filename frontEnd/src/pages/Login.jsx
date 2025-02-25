@@ -5,6 +5,9 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useState } from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
+const CAPTCHA_SITE_KEY = import.meta.env.VITE_CAPTCHA_SITE_KEY;
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const navigation = useNavigate();
   const [recaptchaToken, setRecaptchaToken] = useState(null);
@@ -22,13 +25,10 @@ const Login = () => {
         return;
       }
 
-      const response = await axios.post(
-        "http://localhost:5001/api/auth/login",
-        {
-          ...formData,
-          recaptchaToken,
-        }
-      );
+      const response = await axios.post(`${API_URL}/api/auth/login`, {
+        ...formData,
+        recaptchaToken,
+      });
       localStorage.setItem("token", response.data.token);
       setTimeout(() => {
         navigation("/");
@@ -90,7 +90,7 @@ const Login = () => {
 
                   <div className="d-flex justify-content-center mb-4">
                     <ReCAPTCHA
-                      sitekey="6Lef9OAqAAAAAFNgkSCLr376UGlN0pS3HgtaxQoY"
+                      sitekey={CAPTCHA_SITE_KEY}
                       onChange={handleRecaptchaChange}
                       theme="light"
                     />

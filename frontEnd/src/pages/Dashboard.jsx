@@ -11,6 +11,8 @@ import {
   Image,
 } from "react-bootstrap";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Dashboard = () => {
   const [skills, setSkills] = useState([]);
   const [newSkill, setNewSkill] = useState({
@@ -32,12 +34,9 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5001/api/skills/getallskills`,
-          {
-            headers: getAuthHeaders(),
-          }
-        );
+        const response = await axios.get(`${API_URL}/api/skills/getallskills`, {
+          headers: getAuthHeaders(),
+        });
 
         if (response.data && response.data.skills) {
           setSkills(response.data.skills);
@@ -75,7 +74,7 @@ const Dashboard = () => {
       formData.append("imageFile", newSkill.imageFile);
 
       const response = await axios.post(
-        `http://localhost:5001/api/skills/addskill`,
+        `${API_URL}/api/skills/addskill`,
         formData,
         {
           headers: {
@@ -87,7 +86,7 @@ const Dashboard = () => {
 
       if (response.data) {
         const reloadedSkills = await axios.get(
-          `http://localhost:5001/api/skills/getallskills`,
+          `${API_URL}/api/skills/getallskills`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -140,7 +139,7 @@ const Dashboard = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5001/api/skills/updateskill/${editSkill._id}`,
+        `${API_URL}/api/skills/updateskill/${editSkill._id}`,
         formData,
         {
           headers: {
@@ -162,10 +161,9 @@ const Dashboard = () => {
 
   const deleteSkill = async (skillId) => {
     try {
-      await axios.delete(
-        `http://localhost:5001/api/skills/deleteskill/${skillId}`,
-        { headers: getAuthHeaders() }
-      );
+      await axios.delete(`${API_URL}/api/skills/deleteskill/${skillId}`, {
+        headers: getAuthHeaders(),
+      });
       setSkills(skills.filter((skill) => skill._id !== skillId));
     } catch (error) {
       console.error("Erreur lors de la suppression de la compétence:", error);
