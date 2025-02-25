@@ -3,6 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import SkillCard from "../components/SkillCard";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Skills = () => {
   const [skills, setSkills] = useState([]);
 
@@ -17,12 +19,9 @@ const Skills = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5001/api/skills/getallskills`,
-          {
-            headers: getAuthHeaders(),
-          }
-        );
+        const response = await axios.get(`${API_URL}/api/skills/getallskills`, {
+          headers: getAuthHeaders(),
+        });
 
         if (response.data && response.data.skills) {
           console.log("Skills reçus:", response.data.skills);
