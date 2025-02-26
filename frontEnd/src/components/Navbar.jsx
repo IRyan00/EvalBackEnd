@@ -18,15 +18,22 @@ function CustomNavbar() {
   };
 
   return (
-    <Navbar expand="lg" className="shadow-sm py-2 sticky-top bg-dark">
+    <Navbar
+      expand="lg"
+      className="shadow-sm py-2 sticky-top bg-dark"
+      data-bs-theme="dark"
+    >
       <Container>
-        <Navbar.Brand as={Link} to="/" className="fw-bold text-light">
+        <Navbar.Brand as={Link} to="/" className="fw-bold">
           Portfolio
         </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0">
-          <span className="navbar-toggler-icon custom-toggler">
-            <i className="fas fa-bars text-light"></i>
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav navbar-dark"
+          className="border-0"
+        >
+          <span className="navbar-toggler-icon">
+            <i className="fas fa-bars"></i>
           </span>
         </Navbar.Toggle>
 

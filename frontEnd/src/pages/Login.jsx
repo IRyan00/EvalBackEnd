@@ -2,13 +2,17 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
 const CAPTCHA_SITE_KEY = import.meta.env.VITE_CAPTCHA_SITE_KEY;
 const API_URL = import.meta.env.VITE_API_URL;
 
 const Login = () => {
+  useEffect(() => {
+    document.title = "Portfolio - Connexion";
+  }, []);
+
   const navigation = useNavigate();
   const [recaptchaToken, setRecaptchaToken] = useState(null);
 

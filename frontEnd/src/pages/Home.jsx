@@ -1,8 +1,13 @@
+import React, { useEffect } from "react";
 import CarouselPage from "../components/CarouselPage";
 import Skills from "./Skills";
 import Presentation from "../components/Presentation";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Portfolio - Accueil";
+  }, []);
+
   return (
     <>
       <CarouselPage />

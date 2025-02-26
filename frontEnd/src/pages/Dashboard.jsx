@@ -32,6 +32,8 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
+    document.title = "Portfolio - Dashbord";
+
     const fetchSkills = async () => {
       try {
         const response = await axios.get(`${API_URL}/api/skills/getallskills`, {
