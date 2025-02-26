@@ -12,7 +12,7 @@ function CustomNavbar() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token", token);
+    localStorage.removeItem("token");
     setIsLoggedIn(false);
     navigation("/login");
   };
