@@ -12,7 +12,7 @@ function CustomNavbar() {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem("token", token);
     setIsLoggedIn(false);
     navigation("/login");
   };
@@ -65,7 +65,7 @@ function CustomNavbar() {
                 </Button>
               </div>
             ) : (
-              <div className="d-flex gap-2 flex-column flex-lg-row align-items-stretch align-items-lg-center mt-3 mt-lg-0">
+              <div className="d-flex gap-2 flex-column flex-lg-row align-items-stretch align-items-lg-center mt-lg-0">
                 <Nav.Link as={Link} to="/dashboard" className="text-light px-3">
                   Dashboard
                 </Nav.Link>
