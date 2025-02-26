@@ -7,24 +7,108 @@
 
 C'est un projet qui a pour but d'évaluer mes compétences back-end dans le cadre de la formation "TP DWWM" à l'AFEC de Bayonne.
 
-### Sujet ?
+## Sujet
 
 Vous allez concevoir une application MERN permettant aux utilisateurs de gérer et afficher leurs compétences via un portfolio dynamique. L'application devra être sécurisée, responsive (mobile-first) et conforme aux exigences RGPD avec un système de gestion des cookies (Tarteaucitron.js) et un Captcha (Google reCAPTCHA ou Tarteaucitron) pour sécuriser l’authentification.
 
-### Développement
+## Technologies utilisées
 
-- Initialisation de l’application backend :
+[![My Skills](https://skillicons.dev/icons?i=vscode,git,github,postman,nodejs,npm,javascript,express,mongodb,vite,react,bootstrap,vercel)](https://skillicons.dev)
 
-  - Mise en place de Node.js avec Express.
-  - Configuration de MongoDB avec Mongoose.
+## Arborescence
 
-- Création des routes et controllers :
+```bash
+evalBackEnd/
+├── backEnd/
+│   ├── logs/
+│   │   └── log.log           # Logs
+│   │
+│   ├── src/
+│   │   ├── config/
+│   │   │   ├── db.js         # Configuration de la connexion MongoDB
+│   │   │   └── logg.js       # Configuration des logs
+│   │   │
+│   │   ├── controllers/
+│   │   │   ├── authController.js     # Gestion des utilisateurs
+│   │   │   └── skillsController.js   # Gestion de compétences
+│   │   │
+│   │   ├── middlewares/
+│   │   │   ├── authMiddleware.js       # Middleware d'authentification
+│   │   │   ├── isAdmin.js              # Gestion des administrateurs
+│   │   │   ├── morganMiddleware.js     # Gestion des logs
+│   │   │   └── recaptchaMiddleware.js  # Gestion du reCaptcha
+│   │   │
+│   │   ├── models/
+│   │   │   ├── User.js             # Modèle utilisateur
+│   │   │   ├── Skills.js           # Modèle compétence
+│   │   │   └── Settings.js         # Modèle paramètres
+│   │   │
+│   │   └── routes/
+│   │       ├── authRoutes.js       # Routes pour les utilisateurs
+│   │       └── skillsRoutes.js     # Routes pour les compétences
+│   │
+│   ├── .env                        # Variables d'environnement
+│   ├── .gitignore                  # Fichiers à ignorer par Git
+│   ├── package-lock.json
+│   ├── package.json                # Dépendances et scripts du projet
+│   └── server.js                   # Point d'entrée du serveur
+│
+├── frontend/
+│   ├── src/
+│   │   ├── assets/
+│   │   │   └── carouselImages
+│   │   │       ├── img1.jgp       # 1ère image du carousel
+│   │   │       ├── img2.jgp       # 2ème image du carousel
+│   │   │       └── img3.jgp       # 3ème image du carousel
+│   │   │
+│   │   ├── components/
+│   │   │   ├── CarouselPage.jsx   # Composant carousel
+│   │   │   ├── Footer.jsx         # Composant footer
+│   │   │   ├── Navbar.jsx         # Composant barre de navigation
+│   │   │   ├── Presentation.jsx   # Composant présentation
+│   │   │   └── SkillCard.jsx      # Composant carte de compétence
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Dashboard.jsx     # Page du dashboard
+│   │   │   ├── Home.jsx          # Page d'accueil
+│   │   │   ├── Login.jsx         # Page de connexion
+│   │   │   ├── Register.jsx      # Page d'inscrption
+│   │   │   └── Skills.jsx        # Page d'affichage des compétences
+│   │   │
+│   │   ├── styles/
+│   │   │   └── navbar.css        # Style de la barre de navigation
+│   │   │
+│   │   ├── App.css
+│   │   ├── App.jsx               # Point d'entrée
+│   │   ├── index.css
+│   │   └── main.jsx
+│   │
+│   ├── utils/
+│   │   └── ProtectedRoutes.jsx   # Protection des routes
+│   │
+│   ├── .env                      # Variables d'environnement
+│   ├── .gitignore                # Fichiers à ignorer par Git
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package-lock.json
+│   └── package.json              # Dépendances et scripts du projet
+│
+└── README.md                     # Documentation du projet
+```
 
-  - Gestion des utilisateurs (inscription, connexion, affichage, modification et suppresssion | utilisation de JWT et bcrypt pour la sécurité).
-  - Création, affichage, modification et suppression des skills.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- Test des routes
-  - Test des routes avec Postman (collection : https://www.postman.com/iryan00/my-workspace/collection/3b0arvv/evalbackend?action=share&creator=6356318 ).
+## Suivi
+
+- **GitHub** : Suivi du code
+- **Trello** : Suivi des tâches
+
+## Tests et Visualisation
+
+- **MongoDB Compass** : Visualisation des données
+- **Postman** : Tests des routes API (collection : https://www.postman.com/iryan00/my-workspace/collection/3b0arvv/evalbackend?action=share&creator=6356318 ).
+
+<div align="center">
 
 | Method | Path                        | Desc                            |
 | :----- | :-------------------------- | :------------------------------ |
@@ -38,131 +122,77 @@ Vous allez concevoir une application MERN permettant aux utilisateurs de gérer 
 | PUT    | /api/skills/updateskill/:id | Modifier une compétence         |
 | DEL    | /api/skills/deleteskill/:id | Supprimer une compétence        |
 
-- Démonstration et Déploiement Local
-  - Test complet des fonctionnalités.
-  - Démonstration du projet devant un jury.
-
-```bash
-evalBackEnd/
-├── backEnd/
-│   ├── src/
-│   │   ├── config/
-│   │   │   └── db.js         # Configuration de la connexion MongoDB
-│   │   │
-│   │   ├── controllers/
-│   │   │   ├── authController.js     # Gestion des utilisateurs
-│   │   │   ├── skillsController.js   # Gestion de skills
-│   │   │   └── settingsController.js # Gestion des paramètres
-│   │   │
-│   │   ├── models/
-│   │   │   ├── User.js             # Modèle utilisateur
-│   │   │   ├── Skills.js           # Modèle skills
-│   │   │   └── Settings.js         # Modèle settings
-│   │   │
-│   │   ├── routes/
-│   │   │   ├── authRoutes.js       # Routes pour les utilisateurs
-│   │   │   ├── skillsRoutes.js     # Routes pour les skills
-│   │   │   └── settingsRoutes.js   # Routes pour les paramètres
-│   │   │
-│   │   └── middlewares/
-│   │       ├── authMiddleware.js   # Middleware d'authentification
-│   │       └── isAdmin.js          # Gestion des administrateurs
-│   │
-│   ├── public/                     # Dossier pour les fichiers statiques
-│   │
-│   ├── .env                        # Variables d'environnement
-│   ├── .gitignore                  # Fichiers à ignorer par Git
-│   ├── package.json                # Dépendances et scripts du projet
-│   ├── server.js                   # Point d'entrée du serveur
-├── frontend/             # Vide
-└── README.md                       # Documentation du projet
-```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Technologies utilisées
-
-### Backend
-
-[![My Skills](https://skillicons.dev/icons?i=vscode,git,github,postman,nodejs,npm,javascript,express,mongodb,react,bootstrap,vercel)](https://skillicons.dev)
-
-### Suivi
-
-- **_GitHub_** : Suivi du code.
-- **_Trello_** : Suivi des tâches.
-
-### Tests et Visualisation
-
-- **_Postman_** : Tests des routes API.
-- **_MongoDB_** Compass : Visualisation des données.
-
-### Documentation
-
-- Utilisation de **_Swagger_** ou d’un fichier **_markdown_** structuré.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+</div>
 
 ## Prérequis
 
 - npm :
 
-```sh
-npm install npm@latest -g
-```
+  ```sh
+  npm install npm@latest -g
+  ```
 
-## Installation, préparation et lancement du projet
+## Installation, configuration et lancement du projet
 
-1. Cloner le répertoire :
-   ```sh
-   git clone <url-du-repo>
-   ```
-2. Installer les dépendances pour le backend et le frontend (sur deux terminaux différents):
+1.  Cloner le répertoire :
 
-   ```ini
-   cd backEnd
-   npm i
+    ```sh
+    git clone <url-du-repo>
+    ```
 
-   cd frontEnd
-   npm i
-   ```
+2.  Installer les dépendances pour le backend et le frontend (sur deux terminaux différents):
 
-3. Lancer les serveurs backend et frontend (sur deux terminaux différents):
+    ```ini
+    cd backEnd
+    npm i
 
-   ```ini
-   cd backEnd
-   npm start
+    cd frontEnd
+    npm i
+    ```
 
-   cd frontEnd
-   npm run dev
-   ```
+3.  1.  Créer un fichier `.env` dans le dossier backEnd avec les variables suivantes :
 
-## Configuration
+    ```ini
+    PORT = le_port_sohaité (e.g 3000)
 
-Créer un fichier `.env` à la racine du projet avec les variables suivantes :
+    # MongoDB
+    MONGO_URI = votre_uri_mongodb
 
-```ini
-PORT = le_port_sohaité (e.g 3000)
+    # JsonWebToken
+    JWT_SECRET= votre_phrase_secrète
 
-MONGO_URI = votre_uri_mongodb
+    # Cloudinary
+    CLOUD_NAME= votre_cloud_name
+    API_KEY= votre_api_key
+    API_SECRET= votre_api_secret
 
-JWT_SECRET= votre_phrase_secrète
+    # Google reCaptcha
+    CAPTCHA_SECRET_KEY= votre_captcha_secret_key
+    ```
 
-CLOUD_NAME= votre_cloud_name
-API_KEY= votre_api_key
-API_SECRET= votre_api_secret
-```
+4.  Créer un fichier `.env` dans le dossier frontEnd avec les variables suivantes :
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+    ```ini
+    VITE_API_URL = votre_api_url
+
+    # Google reCaptcha
+    VIT_CAPTCHA_SITE_KEY= votre_captcha_site_key
+    ```
+
+5.  Lancer les serveurs backend et frontend (sur deux terminaux différents):
+
+    ```ini
+    cd backEnd
+    npm start
+
+    cd frontEnd
+    npm run dev
+    ```
 
 ## Démo
 
-### [ Backend - Render ]()
+### [ Backend - Render ](https://evalbackend-sp7c.onrender.com)
 
-### [ Frontend - Vercel ]()
-
-## Liens Utiles
-
-- <a href="https://trello.com/b/eJTXoZUS/geekproject">Trello</a>
-- <a href="https://docs.google.com/document/d/18_fqENGk0fTR6b3LnP3UKBsF_1hyelgP4yCyLKKQpjs/edit?tab=t.0">Google docs</a>
+### [ Frontend - Vercel ](https://eval-back-end.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
