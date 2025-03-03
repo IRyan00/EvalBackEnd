@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Presentation = () => {
   return (
-    <Container fluid className="p-5 bg-dark text-light">
+    <Container fluid className="p-5 bg-dark text-light" id="presentation">
       <Row className="justify-content-center text-center">
         <Col lg={8}>
           <h1 className="display-4 fw-bold mb-4">Développeur Web Full Stack</h1>

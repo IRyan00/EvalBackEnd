@@ -32,7 +32,12 @@ const Footer = () => {
             <a href="#" className="text-light mx-2" aria-label="LinkedIn">
               <FaLinkedin size={24} />
             </a>
-            <a href="#" className="text-light mx-2" aria-label="Github">
+            <a
+              href="https://github.com/IRyan00/EvalBackEnd.git"
+              target="_blank"
+              className="text-light mx-2"
+              aria-label="Github"
+            >
               <FaGithub size={24} />
             </a>
           </Col>

@@ -22,11 +22,11 @@ const Skills = () => {
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        // Afficher la notification d'information pendant le chargement
+        // Afficher la notif de loading
         const loadingToastId = toast.info(
           "Chargement des compétences en cours...",
           {
-            theme: "dark",
+            theme: "light",
             position: "bottom-left",
             autoClose: false,
             hideProgressBar: false,
@@ -45,14 +45,14 @@ const Skills = () => {
           console.log("Skills reçus:", response.data.skills);
           setSkills(response.data.skills);
 
-          // Fermer la notification de chargement
+          // Fermer la notif de loading
           toast.dismiss(loadingToastId);
 
-          // Afficher la notification de succès
+          // Afficher la notif de success
           toast.success("Compétences chargées avec succès !", {
-            theme: "dark",
+            theme: "light",
             position: "bottom-left",
-            autoClose: 3000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -62,12 +62,12 @@ const Skills = () => {
           console.error("Format de réponse invalide:", response.data);
           setSkills([]);
 
-          // Fermer la notification de chargement
+          // Fermer la notif de loading
           toast.dismiss(loadingToastId);
 
-          // Afficher une notification d'erreur
+          // Afficher une notif d'erreur
           toast.error("Erreur: Format de réponse invalide", {
-            theme: "dark",
+            theme: "light",
             position: "bottom-left",
             autoClose: 5000,
           });
@@ -76,11 +76,11 @@ const Skills = () => {
         console.error("Erreur lors de la récupération des skills:", error);
         setSkills([]);
 
-        // Afficher une notification d'erreur
+        // Afficher une notif d'erreur
         toast.error(
           `Erreur lors du chargement des compétences: ${error.message}`,
           {
-            theme: "dark",
+            theme: "light",
             position: "bottom-left",
             autoClose: 5000,
           }
@@ -110,10 +110,10 @@ const Skills = () => {
           </Container>
         </Container>
       ) : (
-        <Container fluid className="py-5 bg-white">
+        <Container fluid className="py-5 px-5 bg-white">
           <Container>
             <h1 className="text-center display-4 mb-5">Mes compétences</h1>
-            <Row xs={1} sm={2} md={3} lg={3} className="g-4">
+            <Row xs={1} sm={2} md={3} lg={4} className="g-5">
               {skills.map((skill) => (
                 <Col key={skill._id}>
                   <SkillCard skill={skill} />

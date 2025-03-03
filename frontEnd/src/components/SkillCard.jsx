@@ -56,16 +56,28 @@ const SkillCard = ({ skill }) => {
       <Card.Body className="d-flex flex-column">
         <Card.Title className="text-center h5 mb-3">{skill.title}</Card.Title>
         <div className="mt-auto">
-          <div className="d-flex justify-content-between align-items-center gap-2">
+          <div className="d-flex justify-content-between align-items-center">
             <Badge
               bg={getCategoryBadgeVariant(skill.category)}
-              className="px-3 py-2 text-uppercase"
+              className="px-1 py-1 text-uppercase text-truncate"
+              style={{
+                maxWidth: "48%",
+                fontSize: "0.65rem",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+              }}
             >
               {skill.category}
             </Badge>
             <Badge
               bg={getLevelBadgeVariant(skill.level)}
-              className="px-3 py-2 text-uppercase"
+              className="px-1 py-1 text-uppercase text-truncate"
+              style={{
+                maxWidth: "48%",
+                fontSize: "0.65rem",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+              }}
             >
               {skill.level}
             </Badge>

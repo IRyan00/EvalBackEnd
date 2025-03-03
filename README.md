@@ -67,7 +67,7 @@ Vous allez concevoir une application MERN permettant aux utilisateurs de gérer 
 1.  Cloner le répertoire :
 
     ```sh
-    git clone <url-du-repo>
+    git clone https://github.com/IRyan00/EvalBackEnd.git
     ```
 
 <br/>
