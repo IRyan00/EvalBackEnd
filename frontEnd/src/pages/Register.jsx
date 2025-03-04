@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Register = () => {
   useEffect(() => {
     document.title = "Portfolio - Inscription";
