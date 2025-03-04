@@ -137,7 +137,6 @@ Vous allez concevoir une application MERN permettant aux utilisateurs de gérer 
   "dependencies": {
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
-    "gitignore": "^0.7.0",
     "jwt-decode": "^4.0.0",
     "react": "^19.0.0",
     "react-bootstrap": "^2.10.9",
@@ -162,7 +161,6 @@ Vous allez concevoir une application MERN permettant aux utilisateurs de gérer 
     "express": "^4.21.2",
     "express-async-handler": "^1.2.0",
     "fs": "^0.0.1-security",
-    "gitignore": "^0.7.0",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.13.0",
@@ -287,7 +285,7 @@ evalBackEnd/                             # Dossier racine du projet
 | GET    | /api/auth/getallusers       | Afficher tous les utilisateurs  |
 | PUT    | /api/auth/updateuser/:id    | Modifier un utilisateur         |
 | DEL    | /api/auth/deleteuser/:id    | Supprimer un utilisateur        |
-| POST   | /api/auth/login.            | Connecter un utilisateur        |
+| POST   | /api/auth/login             | Connecter un utilisateur        |
 | POST   | /api/skills/addskill        | Ajouter une compétence          |
 | GET    | /api/skills/getallskills    | Afficher toutes les compétences |
 | PUT    | /api/skills/updateskill/:id | Modifier une compétence         |
