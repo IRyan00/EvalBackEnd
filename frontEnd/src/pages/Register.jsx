@@ -20,7 +20,7 @@ const Register = () => {
   const onSubmit = async (formData) => {
     try {
       const response = await axios.post(
-        "http://localhost:5001/api/auth/register",
+        `${API_URL}/api/auth/register`,
         formData
       );
       console.log("Registration successful:", response.data);

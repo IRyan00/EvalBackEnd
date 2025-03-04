@@ -22,11 +22,10 @@ C'est un projet qui a pour but d'évaluer mes compétences back-end dans le cadr
 - [Dépendances](#dépendances)
   - [Frontend](#frontend)
   - [Backend](#backend)
-- [Test en tant qu'admin](#test-en-tant-quadmin)
+- [Test admin](#test-admin)
 - [Arborescence](#arborescence)
-- [Suivi](#suivi)
 - [Tests et Visualisation](#tests-et-visualisation)
-- [Demo](#demo)
+- [Déploiement](#déploiement)
   - [Backend - Render](#backend---render)
   - [Frontend - Vercel](#frontend---vercel)
 
@@ -265,11 +264,6 @@ evalBackEnd/                             # Dossier racine du projet
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Suivi
-
-- **GitHub** : Suivi du code
-- **Trello** : Suivi des tâches
 
 ## Tests et Visualisation
 
