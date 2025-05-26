@@ -55,12 +55,8 @@ function CustomNavbar() {
 
   return (
     <>
-      <Navbar
-        expand="lg"
-        id="top"
-        className="bg-dark py-3 sticky-top col-10 mx-auto"
-      >
-        <Container fluid className="px-4">
+      <Navbar expand="lg" id="top" className="bg-dark py-3 sticky-top mx-auto">
+        <Container fluid className="px-4 col-md-10">
           <Navbar.Brand
             className="text-light fw-bold me-auto"
             onClick={scrollToTop}
