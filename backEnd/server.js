@@ -1,35 +1,35 @@
 // Dotenv
-require("dotenv").config();
+import "dotenv/config";
 
 // Express
-const express = require("express");
+import express from "express";
 const app = express();
 
 // Cors
-const cors = require("cors");
+import cors from "cors";
 app.use(cors());
 
 // Helmet
-const helmet = require("helmet");
+import helmet from "helmet";
 app.use(helmet());
 
 // Morgan logging
-const morgan = require("./src/middlewares/morganMiddleware");
+import morgan from "./src/middlewares/morganMiddleware.js";
 app.use(morgan);
 
 // Cookies
-const cookieParser = require("cookie-parser");
+import cookieParser from "cookie-parser";
 app.use(cookieParser());
 
 // Port
 const PORT = process.env.PORT || 3000;
 
 // DB
-const connectDB = require("./src/config/db");
+import connectDB from "./src/config/db.js";
 
 // Routes
-const authRoutes = require("./src/routes/authRoutes");
-const skillsRoutes = require("./src/routes/skillsRoutes");
+import authRoutes from "./src/routes/authRoutes.js";
+import skillsRoutes from "./src/routes/skillsRoutes.js";
 
 app.use(express.json());
 

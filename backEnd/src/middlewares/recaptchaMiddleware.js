@@ -1,12 +1,12 @@
-const axios = require("axios");
-const asyncHandler = require("express-async-handler");
+import axios from "axios";
+import asyncHandler from "express-async-handler";
 
-const verifyRecaptcha = asyncHandler(async (req, res, next) => {
+export const verifyRecaptcha = asyncHandler(async (req, res, next) => {
   try {
     const { recaptchaToken } = req.body;
 
     if (!recaptchaToken) {
-      return res.status(400).json({ message: "Le token reCAPTCHA est requis" });
+      return res.status(400).json({ message: "reCAPTCHA token required" });
     }
 
     const response = await axios.post(
@@ -14,16 +14,12 @@ const verifyRecaptcha = asyncHandler(async (req, res, next) => {
     );
 
     if (!response.data.success) {
-      return res.status(400).json({ message: "Validation reCAPTCHA échouée" });
+      return res.status(400).json({ message: "reCAPTCHA validation failed" });
     }
 
     next();
   } catch (error) {
-    console.error("Erreur reCAPTCHA:", error);
-    res
-      .status(500)
-      .json({ message: "Erreur lors de la vérification du reCAPTCHA" });
+    console.error("reCAPTCHA error:", error);
+    res.status(500).json({ message: "Error checking reCAPTCHA" });
   }
 });
-
-module.exports = { verifyRecaptcha };

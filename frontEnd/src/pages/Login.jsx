@@ -101,24 +101,13 @@ const Login = () => {
                   </div>
 
                   <Button
-                    variant="primary"
+                    variant="success"
                     type="submit"
-                    className="w-100 py-2 mb-3"
+                    className="w-100 py-2 mb-3 text-light"
                     disabled={!recaptchaToken}
                   >
                     Se connecter
                   </Button>
-
-                  <p className="text-center text-muted mb-0">
-                    Pas encore de compte ?{" "}
-                    <Button
-                      variant="link"
-                      onClick={() => navigation("/register")}
-                      className="p-0"
-                    >
-                      S'inscrire
-                    </Button>
-                  </p>
                 </Form>
               </Card.Body>
             </Card>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import SkillCard from "../components/SkillCard";
+import SkillCard from "../components/skillcard/SkillCard";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -42,7 +42,6 @@ const Skills = () => {
         });
 
         if (response.data && response.data.skills) {
-          console.log("Skills reçus:", response.data.skills);
           setSkills(response.data.skills);
 
           // Fermer la notif de loading
@@ -94,11 +93,17 @@ const Skills = () => {
 
   return (
     <>
+      <Container className="text-light text-center col-md-8 mx-auto px-3 mt-5 pt-5">
+        <h3 className="h3">Essential Tools I use</h3>
+        <p>
+          Here are the technologies I use on a daily basis to build your web
+          applications
+        </p>
+      </Container>
       <ToastContainer />
       {isLoading ? (
-        <Container fluid className="py-5 bg-white">
+        <Container fluid className="py-5 px-0 col-md-8 mx-auto">
           <Container className="text-center">
-            <h1 className="text-center display-4 mb-5">Mes compétences</h1>
             <div
               className="d-flex justify-content-center align-items-center"
               style={{ minHeight: "200px" }}
@@ -110,10 +115,9 @@ const Skills = () => {
           </Container>
         </Container>
       ) : (
-        <Container fluid className="py-5 px-5 bg-white">
+        <Container fluid className="px-0 col-md-8 mx-auto my-5">
           <Container>
-            <h1 className="text-center display-4 mb-5">Mes compétences</h1>
-            <Row xs={1} sm={2} md={3} lg={4} className="g-5">
+            <Row xs={1} sm={2} md={3} lg={4} className="g-3">
               {skills.map((skill) => (
                 <Col key={skill._id}>
                   <SkillCard skill={skill} />

@@ -1,19 +1,17 @@
-const User = require("../models/User");
+import User from "../models/User.js";
 
 // bcrypt
-const bcrypt = require("bcrypt");
+import bcrypt from "bcrypt";
 const saltRounds = 10;
 
 // jwt
-const JWT = require("jsonwebtoken");
+import JWT from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET;
 
-exports.registerUser = async (req, res) => {
+export const registerUser = async (req, res) => {
   const { name, email, password, role } = req.body;
   if (!name || !email || !password) {
-    return res
-      .status(400)
-      .json({ message: `Tous les champs doivent être remplis` });
+    return res.status(400).json({ message: `All fields must be completed` });
   }
   try {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -23,27 +21,23 @@ exports.registerUser = async (req, res) => {
       password: hashedPassword,
       role,
     });
-    res.status(201).json({ message: `L'utilisateur a bien été crée: `, user });
+    res.status(201).json({ message: `The user has been created: `, user });
   } catch (error) {
     console.error(error);
-    res
-      .status(500)
-      .json({ message: `Erreur lors de la création de l'utilisateur` });
+    res.status(500).json({ message: `User creation error` });
   }
 };
 
-exports.getAllUsers = async (req, res) => {
+export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find().select("-password");
     res.status(200).json({ users });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: `Erreur lors de la récupération des utilisateurs` });
+    res.status(500).json({ message: `Error retrieving users` });
   }
 };
 
-exports.updateUser = async (req, res) => {
+export const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
     const { name, password } = req.body;
@@ -54,34 +48,28 @@ exports.updateUser = async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(id, updatedFields, {
       new: true,
     }).select("-password");
-    res
-      .status(200)
-      .json({
-        message: `L'utilisateur a bien été mis à jour`,
-        user: updatedUser,
-      });
+    res.status(200).json({
+      message: `The user has been updated`,
+      user: updatedUser,
+    });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: `Erreur lors de la modification de l'utilisateur`,
-        error,
-      });
+    res.status(500).json({
+      message: `User modification error`,
+      error,
+    });
   }
 };
 
-exports.deleteUser = async (req, res) => {
+export const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
     const user = await User.findByIdAndDelete(id);
-    res.status(200).json({ message: `Utilisateur supprimé avec succès`, user });
+    res.status(200).json({ message: `User successfully deleted`, user });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: `Erreur lors de la suppression de l'utilisateur`,
-        error,
-      });
+    res.status(500).json({
+      message: `Error deleting user`,
+      error,
+    });
   }
 };
 
@@ -90,20 +78,18 @@ const generateToken = async (_id) => {
   return token;
 };
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const userLogin = await User.findOne({ email });
 
     if (!userLogin) {
-      return res.status(404).json({ message: `Cet utilisateur n'existe pas` });
+      return res.status(404).json({ message: `This user does not exist` });
     }
 
     const isMatch = await bcrypt.compare(password, userLogin.password);
     if (!isMatch) {
-      return res
-        .status(401)
-        .json({ message: `Email ou mot de passe incorrect` });
+      return res.status(401).json({ message: `Incorrect email or password` });
     }
 
     const token = await generateToken(userLogin._id);
@@ -114,8 +100,6 @@ exports.login = async (req, res) => {
 
     res.status(201).json({ userLogin, token });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: `Erreur lors de la connexion`, error: error.message });
+    res.status(500).json({ message: `Connection error`, error: error.message });
   }
 };

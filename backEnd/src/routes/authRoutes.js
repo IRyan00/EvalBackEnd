@@ -1,16 +1,16 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const {
+import {
   registerUser,
   getAllUsers,
   updateUser,
   deleteUser,
   login,
-} = require("../controllers/authController");
-const { protect } = require("../middlewares/authMiddleware");
-const { isAdmin } = require("../middlewares/isAdmin");
-const { verifyRecaptcha } = require("../middlewares/recaptchaMiddleware");
+} from "../controllers/authController.js";
+import { protect } from "../middlewares/authMiddleware.js";
+import { isAdmin } from "../middlewares/isAdmin.js";
+import { verifyRecaptcha } from "../middlewares/recaptchaMiddleware.js";
 
 router.post("/register", registerUser);
 router.get("/getallusers", protect, isAdmin, getAllUsers);
@@ -18,4 +18,4 @@ router.put("/updateuser/:id", updateUser);
 router.delete("/deleteuser/:id", deleteUser);
 router.post("/login", verifyRecaptcha, login);
 
-module.exports = router;
+export default router;

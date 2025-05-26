@@ -1,16 +1,13 @@
-const winston = require("winston");
+import {
+  createLogger,
+  format as _format,
+  transports as _transports,
+} from "winston";
 
-const logger = winston.createLogger({
-	level: "info", // Niveau d'alerte par défaut
-	format: winston.format.combine(
-		// Combinaison des formats de logs
-		winston.format.timestamp(), // Ajouter une date et heure pour chaque log
-		winston.format.json() // Envoyer les logs au format JSON
-	),
-	transports: [
-		new winston.transports.Console(), // Afficher les logs dans la console
-		new winston.transports.File({ filename: "logs/log.log" }), // Enregistrer les logs dans un fichier
-	],
+const logger = createLogger({
+  level: "info",
+  format: _format.combine(_format.timestamp(), _format.json()),
+  transports: [new _transports.File({ filename: "logs/log.log" })],
 });
 
-module.exports = logger;
+export default logger;

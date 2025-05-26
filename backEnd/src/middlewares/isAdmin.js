@@ -1,8 +1,8 @@
-exports.isAdmin = (req, res, next) => {
-	const { role } = req.user;
+export const isAdmin = (req, res, next) => {
+  const { role } = req.user;
 
-	if (role !== "admin") {
-		return res.status(403).json({ message: "Accès refusé" });
-	}
-	next();
+  if (role !== "admin") {
+    return res.status(403).json({ message: "Access forbidden" });
+  }
+  next();
 };

@@ -25,7 +25,6 @@ const Register = () => {
         `${API_URL}/api/auth/register`,
         formData
       );
-      console.log("Registration successful:", response.data);
       alert(`Registration successful`);
       navigation("/login");
     } catch (error) {

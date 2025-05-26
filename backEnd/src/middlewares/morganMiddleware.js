@@ -1,12 +1,12 @@
-const morgan = require("morgan");
-const logger = require("../config/logg.js");
+import morgan from "morgan";
+import logger from "../config/logg.js";
 
 const morganMiddleware = morgan("common", {
-	stream: {
-		write: (message) => {
-			logger.info(message.trim());
-		},
-	},
+  stream: {
+    write: (message) => {
+      logger.info(message.trim());
+    },
+  },
 });
 
-module.exports = morganMiddleware;
+export default morganMiddleware;

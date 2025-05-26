@@ -1,10 +1,10 @@
-const jwt = require("jsonwebtoken");
-const asyncHandler = require("express-async-handler");
-const User = require("../models/User");
+import jwt from "jsonwebtoken";
+import asyncHandler from "express-async-handler";
+import User from "../models/User.js";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
-const protect = asyncHandler(async (req, res, next) => {
+export const protect = asyncHandler(async (req, res, next) => {
   let token;
 
   if (
@@ -23,16 +23,14 @@ const protect = asyncHandler(async (req, res, next) => {
 
       next();
     } catch (error) {
-      console.error("Erreur d'authentification:", error);
+      console.error("Authentication error:", error);
       res.status(401);
-      throw new Error("Non autorisé, token invalide");
+      throw new Error("Not authorized, invalid token");
     }
   }
 
   if (!token) {
     res.status(401);
-    throw new Error("Non autorisé, pas de token");
+    throw new Error("Not authorized, no token");
   }
 });
-
-module.exports = { protect };

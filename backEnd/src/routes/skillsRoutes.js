@@ -1,18 +1,18 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
 // Multer
-const multer = require("multer");
+import multer from "multer";
 const upload = multer({ dest: "uploads/" });
 
-const {
+import {
   addSkill,
   getAllSkills,
   updateSkill,
   deleteSkill,
-} = require("../controllers/skillsController");
+} from "../controllers/skillsController.js";
 
-const { protect } = require("../middlewares/authMiddleware");
+import { protect } from "../middlewares/authMiddleware.js";
 
 router.post("/addskill", protect, upload.single("imageFile"), addSkill);
 router.get("/getallskills", getAllSkills);
@@ -24,4 +24,4 @@ router.put(
 );
 router.delete("/deleteskill/:id", protect, deleteSkill);
 
-module.exports = router;
+export default router;
