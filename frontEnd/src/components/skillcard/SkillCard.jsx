@@ -14,7 +14,7 @@ const SkillCard = ({ skill }) => {
         height={40}
         className="me-3"
         style={{ objectFit: "contain" }}
-        onError={(e) => console.error("Erreur image:", e)}
+        onError={(e) => console.error("Image error:", e)}
       />
       <div>
         <h6 className="text-light mb-1">{skill.title}</h6>

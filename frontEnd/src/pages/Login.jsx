@@ -25,7 +25,7 @@ const Login = () => {
   const onSubmit = async (formData) => {
     try {
       if (!recaptchaToken) {
-        alert("Veuillez valider le reCAPTCHA");
+        alert("Please validate the reCAPTCHA");
         return;
       }
 
@@ -43,7 +43,7 @@ const Login = () => {
         message: error.message,
         status: error.response?.status,
       });
-      alert("Échec de la connexion. Veuillez réessayer.");
+      alert("Connection failed. Please try again.");
     }
   };
 
@@ -58,7 +58,7 @@ const Login = () => {
           <Col xs={12} sm={10} md={8} lg={6} xl={5}>
             <Card className="border-0 shadow-lg">
               <Card.Body className="p-4 p-md-5">
-                <h1 className="text-center fw-bold mb-4">Connexion</h1>
+                <h1 className="text-center fw-bold mb-4">Connection</h1>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                   <Form.Group className="mb-3">
                     <Form.Label>Email</Form.Label>
@@ -71,13 +71,13 @@ const Login = () => {
                     />
                     {errors.email && (
                       <Form.Control.Feedback type="invalid">
-                        Ce champ est requis
+                        This field is required
                       </Form.Control.Feedback>
                     )}
                   </Form.Group>
 
                   <Form.Group className="mb-4">
-                    <Form.Label>Mot de passe</Form.Label>
+                    <Form.Label>Password</Form.Label>
                     <Form.Control
                       type="password"
                       placeholder="Votre mot de passe"
@@ -87,7 +87,7 @@ const Login = () => {
                     />
                     {errors.password && (
                       <Form.Control.Feedback type="invalid">
-                        Ce champ est requis
+                        This field is required
                       </Form.Control.Feedback>
                     )}
                   </Form.Group>
@@ -106,7 +106,7 @@ const Login = () => {
                     className="w-100 py-2 mb-3 text-light"
                     disabled={!recaptchaToken}
                   >
-                    Se connecter
+                    Sign in
                   </Button>
                 </Form>
               </Card.Body>

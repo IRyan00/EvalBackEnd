@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import SkillCard from "../components/skillcard/SkillCard";
 import axios from "axios";
@@ -23,18 +23,15 @@ const Skills = () => {
     const fetchSkills = async () => {
       try {
         // Afficher la notif de loading
-        const loadingToastId = toast.info(
-          "Chargement des compétences en cours...",
-          {
-            theme: "light",
-            position: "bottom-left",
-            autoClose: false,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          }
-        );
+        const loadingToastId = toast.info("Loading skills in progress...", {
+          theme: "light",
+          position: "bottom-left",
+          autoClose: false,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
 
         setIsLoading(true);
         const response = await axios.get(`${API_URL}/api/skills/getallskills`, {
@@ -48,42 +45,39 @@ const Skills = () => {
           toast.dismiss(loadingToastId);
 
           // Afficher la notif de success
-          toast.success("Compétences chargées avec succès !", {
-            theme: "light",
-            position: "bottom-left",
-            autoClose: 1500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-          });
+          // toast.success("Successfully loaded skills !", {
+          //   theme: "light",
+          //   position: "bottom-left",
+          //   autoClose: 1500,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          // });
         } else {
-          console.error("Format de réponse invalide:", response.data);
+          console.error("Invalid response format:", response.data);
           setSkills([]);
 
           // Fermer la notif de loading
           toast.dismiss(loadingToastId);
 
           // Afficher une notif d'erreur
-          toast.error("Erreur: Format de réponse invalide", {
+          toast.error("Error: Invalid response format", {
             theme: "light",
             position: "bottom-left",
             autoClose: 5000,
           });
         }
       } catch (error) {
-        console.error("Erreur lors de la récupération des skills:", error);
+        console.error("Error when retrieving skills:", error);
         setSkills([]);
 
         // Afficher une notif d'erreur
-        toast.error(
-          `Erreur lors du chargement des compétences: ${error.message}`,
-          {
-            theme: "light",
-            position: "bottom-left",
-            autoClose: 5000,
-          }
-        );
+        toast.error(`Error loading skills: ${error.message}`, {
+          theme: "light",
+          position: "bottom-left",
+          autoClose: 5000,
+        });
       } finally {
         setIsLoading(false);
       }
@@ -108,8 +102,8 @@ const Skills = () => {
               className="d-flex justify-content-center align-items-center"
               style={{ minHeight: "200px" }}
             >
-              <div className="spinner-border text-primary" role="status">
-                <span className="visually-hidden">Chargement...</span>
+              <div className="spinner-border text-success" role="status">
+                <span className="visually-hidden">Loading...</span>
               </div>
             </div>
           </Container>

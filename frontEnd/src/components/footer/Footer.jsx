@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Container,
   Row,
@@ -13,7 +13,7 @@ import {
 import { FaDiscord, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
-import "./Footer.css"; // Assurez-vous de créer ce fichier CSS
+import "./Footer.css";
 
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
@@ -36,7 +36,7 @@ const Footer = () => {
       setShowTooltip(true);
       setTimeout(() => setShowTooltip(false), 2000);
     } catch (err) {
-      console.error("Erreur lors de la copie du texte: ", err);
+      console.error("Error when copying text: ", err);
     }
   };
 
@@ -53,7 +53,7 @@ const Footer = () => {
     } catch (error) {
       setAlert({
         type: "danger",
-        message: "Erreur lors de l'envoi de l'email",
+        message: "Error sending email",
       });
     } finally {
       setIsLoading(false);
