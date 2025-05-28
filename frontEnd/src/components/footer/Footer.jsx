@@ -73,6 +73,7 @@ const Footer = () => {
             <div className="d-flex gap-3">
               <a
                 href="https://www.linkedin.com/in/ryan-eymas/"
+                aria-label="Redirect to LinkedIn profile"
                 target="_blank"
                 className="text-light"
               >
@@ -80,6 +81,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://x.com/IRyan___"
+                aria-label="Redirect to X/Twitter profile"
                 target="_blank"
                 className="text-light"
               >
@@ -87,6 +89,7 @@ const Footer = () => {
               </a>
               <a
                 href="https://github.com/IRyan00"
+                aria-label="Redirect to Github profile"
                 target="_blank"
                 className="text-light"
               >

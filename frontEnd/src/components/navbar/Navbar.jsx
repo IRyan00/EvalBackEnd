@@ -58,6 +58,8 @@ function CustomNavbar() {
       <Navbar expand="lg" id="top" className="bg-dark py-3 sticky-top mx-auto">
         <Container fluid className="px-4 col-md-10">
           <Navbar.Brand
+            as={Link}
+            to={"/"}
             className="text-light fw-bold me-auto"
             onClick={scrollToTop}
           >
@@ -65,6 +67,7 @@ function CustomNavbar() {
           </Navbar.Brand>
 
           <Button
+            aria-label="Burger menu button for mobile"
             onClick={() => setShowFloatingMenu(true)}
             className="text-light d-lg-none ms-auto burger-btn d-flex align-items-center"
           >
@@ -129,7 +132,7 @@ function CustomNavbar() {
 
       {/* MOBILE */}
       {showFloatingMenu && (
-        <div className="custom-menu position-fixed top-0 end-0 m-3 text-end">
+        <div className="custom-menu position-fixed top-0 end-0 m-3 p-3 text-end">
           <Button
             variant="link"
             className="close-btn text-white text-end"
