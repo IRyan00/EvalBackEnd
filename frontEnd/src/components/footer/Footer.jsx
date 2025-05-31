@@ -75,7 +75,8 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/ryan-eymas/"
                 aria-label="Redirect to LinkedIn profile"
                 target="_blank"
-                className="text-light"
+                id="links"
+                className="text-light rounded-3 p-2 border border-secondary"
               >
                 <FaLinkedinIn size={30} />
               </a>
@@ -83,7 +84,8 @@ const Footer = () => {
                 href="https://x.com/IRyan___"
                 aria-label="Redirect to X/Twitter profile"
                 target="_blank"
-                className="text-light"
+                id="links"
+                className="text-light rounded-3 p-2 border border-secondary"
               >
                 <FaTwitter size={30} />
               </a>
@@ -91,7 +93,8 @@ const Footer = () => {
                 href="https://github.com/IRyan00"
                 aria-label="Redirect to Github profile"
                 target="_blank"
-                className="text-light"
+                id="links"
+                className="text-light rounded-3 p-2 border border-secondary"
               >
                 <FaGithub size={30} />
               </a>
@@ -105,7 +108,8 @@ const Footer = () => {
                 show={showTooltip}
               >
                 <div
-                  className="text-light"
+                  id="links"
+                  className="text-light rounded-3 p-2 border border-secondary"
                   onClick={() => handleCopyClick({ textToCopy: "ryan1881" })}
                 >
                   <FaDiscord size={30} />

@@ -5,14 +5,15 @@ const SkillCard = ({ skill }) => {
   return (
     <Card
       id="skill-card"
-      className="d-flex flex-row align-items-center bg-dark border border-secondary rounded-3 shadow-sm p-3 h-100"
+      className="d-flex flex-row align-items-center bg-dark border border-secondary rounded-3 shadow-sm p-2 h-100"
     >
       <Image
         src={skill.image}
         alt={skill.title}
-        width={40}
-        height={40}
-        className="me-3"
+        width={50}
+        height={50}
+        id="skill-image"
+        className="me-3 rounded-2 p-2"
         style={{ objectFit: "contain" }}
         onError={(e) => console.error("Image error:", e)}
       />

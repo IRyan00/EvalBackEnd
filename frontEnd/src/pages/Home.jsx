@@ -6,7 +6,7 @@ import Creations from "../components/creations/Creations";
 
 const Home = () => {
   useEffect(() => {
-    document.title = "Portfolio - Home";
+    document.title = "Ryan's portfolio | Junior web developer";
   }, []);
 
   return (

@@ -79,18 +79,21 @@ function CustomNavbar() {
             <div className="d-flex w-100 justify-content-between align-items-center">
               <Nav className="mx-auto d-none d-lg-flex gap-3">
                 <Nav.Link
+                  id="home-links"
                   className="fw-bold text-light"
                   onClick={() => scrollToSection("top")}
                 >
                   Home
                 </Nav.Link>
                 <Nav.Link
+                  id="home-links"
                   className="fw-bold text-light"
                   onClick={() => scrollToSection("about")}
                 >
                   About
                 </Nav.Link>
                 <Nav.Link
+                  id="home-links"
                   className="fw-bold text-light"
                   onClick={() => scrollToSection("work")}
                 >

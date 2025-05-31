@@ -27,7 +27,7 @@ function App() {
   };
 
   return (
-    <Container id="work" fluid className="px-3 pt-1">
+    <Container id="work" fluid className="px-3 my-5 py-5">
       <h3 className="text-light text-center my-5 col-md-8 mx-auto">
         My creations
       </h3>

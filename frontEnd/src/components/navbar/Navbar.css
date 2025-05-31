@@ -7,6 +7,10 @@ nav {
   background-color: var(--navfooter-color);
 }
 
+#home-links:hover {
+  color: #198753 !important;
+}
+
 .btn-primary {
   --bs-btn-color: black;
   --bs-btn-bg: rgb(60, 60, 60);

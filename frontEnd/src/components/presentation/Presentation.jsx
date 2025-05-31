@@ -6,7 +6,7 @@ const Presentation = () => {
     <Container
       id="about"
       fluid
-      className="px-0 bg-dark text-light col-md-8 mx-auto"
+      className="px-0 my-5 pb-5 bg-dark text-light col-md-8 mx-auto"
     >
       <Row id="presentation" className="my-5 col-11 mx-auto rounded-4 p-4">
         <p className="lead m-0">
