@@ -113,7 +113,7 @@ function App() {
                       id="redirect"
                       variant="success"
                       aria-label="Redirect to the site in question"
-                      href="https://assist-mat.vercel.app/"
+                      href="https://nanny-jet.vercel.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-2 rounded-2 text-light d-flex justify-content-center align-items-center"
